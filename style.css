@@ -52,18 +52,18 @@ img { max-width: 100%; display: block; }
   color: var(--blue);
 }
 
-.brand-mark {
-  display: grid;
-  place-items: center;
-  width: 42px;
-  height: 42px;
-  border: 2px solid var(--blue);
-  border-radius: 50%;
-  font-size: 20px;
+.brand-logo {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  flex: 0 0 auto;
 }
 
 .brand small,
-.brand strong { display:block; line-height: 1.05; }
+.brand strong {
+  display: block;
+  line-height: 1.05;
+}
 
 .brand small {
   font-size: 11px;
@@ -118,7 +118,10 @@ img { max-width: 100%; display: block; }
   overflow: hidden;
 }
 
-.hero-copy { position: relative; z-index: 2; }
+.hero-copy {
+  position: relative;
+  z-index: 2;
+}
 
 .eyebrow {
   margin: 0 0 10px;
@@ -131,7 +134,7 @@ img { max-width: 100%; display: block; }
 .hero h1 {
   margin: 0 0 22px;
   font-family: "M PLUS Rounded 1c", sans-serif;
-  font-size: clamp(44px, 5.7vw, 78px);
+  font-size: clamp(40px, 5vw, 68px);
   line-height: 1.28;
   letter-spacing: .02em;
 }
@@ -162,7 +165,11 @@ img { max-width: 100%; display: block; }
 
 .button:hover { transform: translateY(-2px); }
 
-.primary { background: var(--blue); color: white; }
+.primary {
+  background: var(--blue);
+  color: white;
+}
+
 .primary:hover { background: var(--blue-dark); }
 
 .ghost {
@@ -171,51 +178,19 @@ img { max-width: 100%; display: block; }
   background: rgba(255,255,255,.65);
 }
 
-.hero-visual { position: relative; }
+.hero-visual {
+  position: relative;
+  width: 100%;
+}
 
-.photo-placeholder {
-  min-height: 480px;
+.hero-photo {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  object-position: center;
   border-radius: 46% 46% 26px 26px;
-  display: grid;
-  place-content: center;
-  text-align: center;
-  border: 2px dashed rgba(37,137,223,.25);
-  background:
-    linear-gradient(rgba(255,255,255,.35), rgba(255,255,255,.35)),
-    linear-gradient(135deg, #f7e5b4, #e7f4df);
   box-shadow: var(--shadow);
 }
-
-.photo-placeholder span,
-.map-placeholder span {
-  color: var(--blue);
-  font-weight: 800;
-  letter-spacing: .2em;
-}
-
-.photo-placeholder p,
-.map-placeholder p {
-  margin: 6px 0 0;
-  color: var(--muted);
-  font-size: 13px;
-}
-
-.bubble {
-  position: absolute;
-  width: 128px;
-  height: 128px;
-  border-radius: 50%;
-  display: grid;
-  place-content: center;
-  text-align: center;
-  color: var(--blue);
-  background: white;
-  box-shadow: var(--shadow);
-  font-size: 13px;
-}
-
-.bubble.one { top: 38px; right: -36px; }
-.bubble.two { bottom: 42px; left: -42px; }
 
 .wave {
   position: absolute;
@@ -283,7 +258,9 @@ img { max-width: 100%; display: block; }
   gap: 22px;
 }
 
-.cards.three { grid-template-columns: repeat(3, 1fr); }
+.cards.three {
+  grid-template-columns: repeat(3, 1fr);
+}
 
 .card,
 .menu-card {
@@ -322,7 +299,12 @@ img { max-width: 100%; display: block; }
   font-size: 12px;
 }
 
-.menu-grid { grid-template-columns: repeat(3, 1fr); }
+/* 料金は1メニューなので中央に大きく表示 */
+.menu-grid {
+  grid-template-columns: 1fr;
+  max-width: 700px;
+  margin: 0 auto;
+}
 
 .menu-card {
   text-align: center;
@@ -388,7 +370,11 @@ img { max-width: 100%; display: block; }
 
 .step h3,
 .step p { margin: 0; }
-.center-note { text-align: center; margin-top: 22px; }
+
+.center-note {
+  text-align: center;
+  margin-top: 22px;
+}
 
 .access-box {
   display: grid;
@@ -413,12 +399,30 @@ img { max-width: 100%; display: block; }
   background-size: 34px 34px;
 }
 
+.map-placeholder span {
+  color: var(--blue);
+  font-weight: 800;
+  letter-spacing: .2em;
+}
+
+.map-placeholder p {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
 .access-info {
   padding: 42px;
 }
 
 dl { margin: 0 0 24px; }
-dt { margin-top: 14px; color: var(--blue); font-weight: 700; }
+
+dt {
+  margin-top: 14px;
+  color: var(--blue);
+  font-weight: 700;
+}
+
 dd { margin: 4px 0 0; }
 
 .text-link {
@@ -477,8 +481,6 @@ details p { margin-bottom: 0; }
   border: 1.5px solid white;
 }
 
-.disabled { opacity: .72; }
-
 footer {
   padding: 28px clamp(22px, 6vw, 90px);
   display: flex;
@@ -487,9 +489,17 @@ footer {
   background: #fffdf7;
 }
 
-.footer-brand .brand-mark { width: 34px; height: 34px; }
+.footer-brand .brand-logo {
+  width: 38px;
+  height: 38px;
+}
+
 .footer-brand strong { font-size: 20px; }
-footer p { font-size: 12px; color: var(--muted); }
+
+footer p {
+  font-size: 12px;
+  color: var(--muted);
+}
 
 @media (max-width: 900px) {
   .menu-button { display: block; }
@@ -519,16 +529,24 @@ footer p { font-size: 12px; color: var(--muted); }
     padding-top: 54px;
   }
 
-  .hero-visual { max-width: 620px; width: 100%; margin: 0 auto; }
-  .photo-placeholder { min-height: 390px; }
-  .bubble.one { right: -8px; }
-  .bubble.two { left: -8px; }
+  .hero-visual {
+    max-width: 620px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .hero-photo {
+    height: 410px;
+  }
 
   .two-column,
-  .access-box { grid-template-columns: 1fr; }
+  .access-box {
+    grid-template-columns: 1fr;
+  }
 
-  .cards.three,
-  .menu-grid { grid-template-columns: 1fr; }
+  .cards.three {
+    grid-template-columns: 1fr;
+  }
 
   .reservation {
     flex-direction: column;
@@ -541,20 +559,32 @@ footer p { font-size: 12px; color: var(--muted); }
   html { scroll-padding-top: 76px; }
   .nav { top: 72px; }
 
-  .brand strong { font-size: 22px; }
-  .brand-mark { width: 36px; height: 36px; }
+  .brand-logo {
+    width: 40px;
+    height: 40px;
+  }
 
-  .hero { padding-left: 20px; padding-right: 20px; }
+  .brand strong { font-size: 22px; }
+
+  .hero {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
   .hero h1 { font-size: 42px; }
   .lead br { display: none; }
 
   .hero-actions,
-  .reservation-actions { width: 100%; }
+  .reservation-actions {
+    width: 100%;
+  }
 
   .button { width: 100%; }
 
-  .photo-placeholder { min-height: 320px; border-radius: 38% 38% 24px 24px; }
-  .bubble { width: 100px; height: 100px; font-size: 11px; }
+  .hero-photo {
+    height: 350px;
+    border-radius: 38% 38% 24px 24px;
+  }
 
   .section { padding: 76px 20px; }
   .section-heading { margin-bottom: 32px; }
@@ -562,7 +592,13 @@ footer p { font-size: 12px; color: var(--muted); }
   .access-info { padding: 28px 22px; }
   .map-placeholder { min-height: 260px; }
 
-  .step { grid-template-columns: 56px 1fr; padding: 20px; }
+  .step {
+    grid-template-columns: 56px 1fr;
+    padding: 20px;
+  }
 
-  footer { flex-direction: column; gap: 14px; }
+  footer {
+    flex-direction: column;
+    gap: 14px;
+  }
 }
